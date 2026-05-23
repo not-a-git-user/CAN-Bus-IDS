@@ -1,0 +1,21 @@
+[
+    {"id": "0x201", "name": "Roll_deg", "interval": 1.1, "limits": [-0.334, 0.28]},
+    {"id": "0x202", "name": "Pitch_deg", "interval": 1.51, "limits": [-0.067, 0.114]},
+    {"id": "0x203", "name": "Yaw_deg", "interval": 1.71, "limits": [-179.744, 179.262]},
+    {"id": "0x301", "name": "Heading_deg", "interval": 1.01, "limits": [0.042, 359.812]},
+    {"id": "0x302", "name": "Speed_mps", "interval": 0.92, "limits": [0.0, 8.662]},
+    {"id": "0x150", "name": "YawRate_degps", "interval": 1.01, "limits": [-56.218, 61.387]},
+    {"id": "0x160", "name": "Steering_deg", "interval": 2.01, "limits": [-14.0, 14.0]},
+    {"id": "0x161", "name": "Throttle_pct", "interval": 2.02, "limits": [0.0, 40.0]},
+    {"id": "0x171", "name": "Pos_X_m", "interval": 1.1, "limits": [-64.645, 100.066]},
+    {"id": "0x172", "name": "Pos_Y_m", "interval": 1.1, "limits": [24.471, 136.701]},
+    {"id": "0x173", "name": "Pos_Z_m", "interval": 1.1, "limits": [-0.057, 0.004]},
+    {"id": "0x181", "name": "GPS_Lat", "interval": 2.1, "limits": [-0.0012280062867802144, -0.00021982682488896899]},
+    {"id": "0x182", "name": "GPS_Lon", "interval": 2.1, "limits": [-0.0005807145145428739, 0.0008989125755090708]},
+    {"id": "0x191", "name": "Vib_X", "interval": 2.01, "limits": [-10.5862, 11.568]},
+    {"id": "0x192", "name": "Vib_Y", "interval": 2.01, "limits": [-9.0293, 9.4747]},
+    {"id": "0x193", "name": "Vib_Z", "interval": 2.01, "limits": [9.0377, 16.2525]},
+    {"id": "0x221", "name": "Distance_To_Home_m", "interval": 1.1, "limits": [0.598, 180.841]},
+    {"id": "0x222", "name": "Heading_To_Home_deg", "interval": 1.01, "limits": [0.0, 256.805]},
+    {"id": "0x223", "name": "Heading_To_NextWP_deg", "interval": 1.01, "limits": [0.004, 359.994]}
+]

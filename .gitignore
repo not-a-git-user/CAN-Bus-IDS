@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+
+.venv/
+venv/
+env/
+
+sent_logs/
+alerts_live.json
+
+.DS_Store
