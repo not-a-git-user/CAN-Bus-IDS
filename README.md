@@ -314,6 +314,3 @@ or pass one on the command line:
 python3 detector.py --encrypt --encrypt_key "secret-key"
 ```
 
-## License
-
-Add a license file if you plan to publish this repository publicly.
