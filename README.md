@@ -7,7 +7,7 @@
 
 > README made using AI 
 
-A small Python lab for simulating normal CAN traffic, generating rogue traffic, detecting suspicious activity, and optionally encrypting log and Redis outputs.
+Python lab for simulating normal CAN traffic, generating rogue traffic, detecting suspicious activity, and optionally encrypting log and Redis outputs.
 
 This project is built around a Linux `socketcan` virtual CAN interface (`vcan0`) and is useful for demos, classroom exercises, and local security experiments.
 
