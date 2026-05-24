@@ -30,7 +30,6 @@ This project is built around a Linux `socketcan` virtual CAN interface (`vcan0`)
 ## Project Layout
 
 ```text
-.
 ├── authorized_nodes.py
 ├── unauthorized_node.py
 ├── detector.py
@@ -54,7 +53,7 @@ Python dependencies are listed in `requirements.txt`.
 ## Installation
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/not-a-git-user/CAN-Bus-IDS.git
 cd canBus
 python3 -m venv .venv
 source .venv/bin/activate
