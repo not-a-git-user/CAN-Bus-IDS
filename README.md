@@ -5,6 +5,8 @@
 > The full project also includes a dashboard, packet tracer components, secure communications between the EV and a central hub, AI-based detectors, and a honeypot.
 > This is not the final project version, and the complete system is intentionally not published online because doing so would create unnecessary security risk.
 
+> README made using AI 
+
 A small Python lab for simulating normal CAN traffic, generating rogue traffic, detecting suspicious activity, and optionally encrypting log and Redis outputs.
 
 This project is built around a Linux `socketcan` virtual CAN interface (`vcan0`) and is useful for demos, classroom exercises, and local security experiments.
