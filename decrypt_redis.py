@@ -8,6 +8,10 @@ import redis
 from crypto_utils import decrypt_data, is_encrypted_envelope
 
 
+def print_decrypt_alert(channel: str, exc: ValueError) -> None:
+    print(f"ALERT: decryption failed on channel {channel}: {exc}", file=sys.stderr)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--host", default="localhost", help="Redis host")
@@ -29,7 +33,7 @@ def main() -> int:
     try:
         client.ping()
     except redis.ConnectionError:
-        print("Error: could not connect to Redis", file=sys.stderr)
+        print("Error: no connection to Redis", file=sys.stderr)
         return 1
 
     channels = [c.strip() for c in args.channels.split(",") if c.strip()]
@@ -40,6 +44,9 @@ def main() -> int:
     for message in pubsub.listen():
         if message.get("type") != "message":
             continue
+        channel = message.get("channel", "")
+        if isinstance(channel, bytes):
+            channel = channel.decode("utf-8", errors="ignore")
         raw = message.get("data")
         if isinstance(raw, bytes):
             raw = raw.decode("utf-8", errors="ignore")
@@ -53,7 +60,7 @@ def main() -> int:
             try:
                 decrypted = decrypt_data(json.dumps(obj).encode("utf-8"), args.key)
             except ValueError as exc:
-                print(f"Decrypt failed: {exc}", file=sys.stderr)
+                print_decrypt_alert(channel, exc)
                 continue
             print(json.dumps(decrypted, sort_keys=True))
         else:

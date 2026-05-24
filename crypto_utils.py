@@ -60,7 +60,10 @@ def encrypt_data(data: Any, password: str) -> bytes:
         "ciphertext": _b64e(ciphertext),
         "tag": _b64e(tag),
     }
-    return json.dumps(envelope, separators=(",", ":"), sort_keys=True).encode("utf-8")
+    payload = json.dumps(envelope, separators=(",", ":"), sort_keys=True).encode("utf-8")
+    if not payload.strip():
+        raise ValueError("Encrypted payload is empty")
+    return payload
 
 
 def is_encrypted_envelope(obj: Dict[str, Any]) -> bool:

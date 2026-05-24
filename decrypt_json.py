@@ -6,6 +6,10 @@ import sys
 from crypto_utils import decrypt_data, is_encrypted_envelope
 
 
+def print_decrypt_alert(line_no: int, exc: ValueError) -> None:
+    print(f"ALERT: decryption failed on line {line_no}: {exc}", file=sys.stderr)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--input_file", required=True, help="Path to encrypted JSONL file")
@@ -22,7 +26,7 @@ def main() -> int:
     indent = 2 if args.pretty else None
 
     with open(args.input_file, "r", encoding="utf-8") as fh:
-        for line in fh:
+        for line_no, line in enumerate(fh, start=1):
             line = line.strip()
             if not line:
                 continue
@@ -35,7 +39,7 @@ def main() -> int:
                 try:
                     decrypted = decrypt_data(json.dumps(obj).encode("utf-8"), args.key)
                 except ValueError as exc:
-                    print(f"Decrypt failed: {exc}", file=sys.stderr)
+                    print_decrypt_alert(line_no, exc)
                     continue
                 output = json.dumps(decrypted, indent=indent, sort_keys=True)
             else:
